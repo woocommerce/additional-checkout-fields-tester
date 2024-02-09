@@ -12,7 +12,7 @@ The fields marked with asterisks are additional fields.
 
 ## Address location
 
-<img width="721" alt="Screenshot of the shipping address section showing four additional fields." src="https://github.com/woocommerce/additional-checkout-fields-tester/assets/5656702/c8d1bcb1-9f5a-4ac8-b048-aff96308e03c">
+<img width="731" alt="Screenshot of the shipping address section showing four additional fields." src="https://github.com/woocommerce/additional-checkout-fields-tester/assets/5656702/2a5aedc0-d238-4354-b6ea-355490b19e4c">
 
 The fields marked with asterisks are additional fields. The fields also appear in the billing address.
 

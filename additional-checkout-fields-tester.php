@@ -89,8 +89,8 @@ function custom_fields_tester_register_custom_checkout_fields() {
 
 	woocommerce_blocks_register_checkout_field(
 		array(
-			'id'       => 'plugin-namespace/attest-confirm-gov-id',
-			'label'    => 'I confirm this is my valid Government ID',
+			'id'       => 'plugin-namespace/contact-about-order',
+			'label'    => 'Can we contact you about your order?',
 			'location' => 'address',
 			'type'     => 'checkbox',
 			'required' => true,
