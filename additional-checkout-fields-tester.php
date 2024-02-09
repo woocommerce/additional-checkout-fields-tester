@@ -93,7 +93,6 @@ function custom_fields_tester_register_custom_checkout_fields() {
 			'label'    => 'Can we contact you about your order?',
 			'location' => 'address',
 			'type'     => 'checkbox',
-			'required' => true,
 		),
 	);
 
