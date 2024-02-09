@@ -33,15 +33,6 @@ function custom_fields_tester_register_custom_checkout_fields() {
 
 	woocommerce_blocks_register_checkout_field(
 		array(
-			'id'       => 'plugin-namespace/mailing-list',
-			'label'    => 'Sign up to our mailing list?',
-			'location' => 'contact',
-			'type'     => 'checkbox',
-		)
-	);
-
-	woocommerce_blocks_register_checkout_field(
-		array(
 			'id'       => 'plugin-namespace/job-function',
 			'label'    => 'What is your main role at your company?',
 			'location' => 'contact',
@@ -64,6 +55,15 @@ function custom_fields_tester_register_custom_checkout_fields() {
 					'value' => 'other',
 				]
 			]
+		)
+	);
+
+	woocommerce_blocks_register_checkout_field(
+		array(
+			'id'       => 'plugin-namespace/mailing-list',
+			'label'    => 'Sign up to our mailing list?',
+			'location' => 'contact',
+			'type'     => 'checkbox',
 		)
 	);
 
@@ -94,6 +94,29 @@ function custom_fields_tester_register_custom_checkout_fields() {
 			'location' => 'address',
 			'type'     => 'checkbox',
 			'required' => true,
+		),
+	);
+
+	woocommerce_blocks_register_checkout_field(
+		array(
+			'id'       => 'plugin-namespace/preferred-contact-time',
+			'label'    => 'Preferred time to contact (Morning, Afternoon, or Evening)',
+			'location' => 'address',
+			'type'     => 'select',
+			'options'  => [
+				[
+					'label' => 'Morning',
+					'value' => 'morning',
+				],
+				[
+					'label' => 'Afternoon',
+					'value' => 'afternoon',
+				],
+				[
+					'label' => 'Evening',
+					'value' => 'evening',
+				],
+			],
 		),
 	);
 
