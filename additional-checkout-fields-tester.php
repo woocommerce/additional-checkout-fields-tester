@@ -184,6 +184,18 @@ function custom_fields_tester_register_custom_checkout_fields() {
 	);
 
 	add_action(
+		'woocommerce_blocks_sanitize_additional_field',
+		function( $value, $key ) {
+			if ( 'plugin-namespace/gov-id' === $key || 'plugin-namespace/confirm-gov-id' === $key ) {
+				return trim( $value );
+			}
+			return $value;
+		},
+		10,
+		2
+	);
+
+	add_action(
 		'woocommerce_blocks_validate_address_fields',
 		function ( \WP_Error $errors, $fields, $group ) {
 			if ( $fields['plugin-namespace/gov-id'] !== $fields['plugin-namespace/confirm-gov-id'] ) {
