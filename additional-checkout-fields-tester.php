@@ -23,11 +23,19 @@ add_action( 'woocommerce_loaded', 'custom_fields_tester_register_custom_checkout
 function custom_fields_tester_register_custom_checkout_fields() {
 	woocommerce_blocks_register_checkout_field(
 		array(
-			'id'       => 'plugin-namespace/alt-email',
-			'label'    => 'Alternative Email',
-			'location' => 'contact',
-			'type'     => 'text',
-			'required' => true,
+			'id'                => 'plugin-namespace/alt-email',
+			'label'             => 'Alternative Email',
+			'location'          => 'contact',
+			'type'              => 'text',
+			'required'          => true,
+			'sanitize_callback' => function( $field_value ) {
+				return sanitize_email( $field_value );
+			},
+			'validate_callback' => function( $field_value ) {
+				if ( ! is_email( $field_value ) ) {
+					return new \WP_Error( 'invalid_alt_email', 'Please ensure your alternative email matches the correct format.' );
+				}
+			},
 		)
 	);
 
@@ -69,11 +77,14 @@ function custom_fields_tester_register_custom_checkout_fields() {
 
 	woocommerce_blocks_register_checkout_field(
 		array(
-			'id'       => 'plugin-namespace/gov-id',
-			'label'    => 'Government ID',
-			'location' => 'address',
-			'type'     => 'text',
-			'required' => true,
+			'id'                => 'plugin-namespace/gov-id',
+			'label'             => 'Government ID',
+			'location'          => 'address',
+			'type'              => 'text',
+			'required'          => true,
+			'sanitize_callback' => function( $field_value ) {
+				return str_replace( ' ', '', $field_value );
+			},
 		),
 	);
 
