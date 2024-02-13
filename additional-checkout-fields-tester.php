@@ -165,7 +165,7 @@ function custom_fields_tester_register_custom_checkout_fields() {
 
 	add_action(
 		'woocommerce_blocks_validate_additional_field',
-		function ( \WP_Error $errors, $field_value, $field_key ) {
+		function ( \WP_Error $errors, $field_key, $field_value ) {
 			if ( 'plugin-namespace/gov-id' === $field_key ) {
 				$match = preg_match( '/[A-Z0-9]{5}/', $field_value );
 				if ( 0 === $match || false === $match ) {
