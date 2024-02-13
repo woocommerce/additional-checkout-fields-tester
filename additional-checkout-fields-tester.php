@@ -195,7 +195,7 @@ function custom_fields_tester_register_custom_checkout_fields() {
 	);
 
 	add_action(
-		'woocommerce_blocks_validate_address_fields',
+		'woocommerce_blocks_validate_location_address_fields',
 		function ( \WP_Error $errors, $fields, $group ) {
 			if ( $fields['plugin-namespace/gov-id'] !== $fields['plugin-namespace/confirm-gov-id'] ) {
 				$errors->add( 'gov_id_mismatch', 'Please ensure your government ID matches the confirmation.' );
