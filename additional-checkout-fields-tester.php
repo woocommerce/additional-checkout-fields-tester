@@ -21,6 +21,11 @@ add_action( 'woocommerce_loaded', 'custom_fields_tester_register_custom_checkout
  * @throws Exception If there is an error during the registration of the checkout fields.
  */
 function custom_fields_tester_register_custom_checkout_fields() {
+
+	if ( ! function_exists( 'woocommerce_blocks_register_checkout_field' ) ) {
+		return;
+	}
+
 	woocommerce_blocks_register_checkout_field(
 		array(
 			'id'                => 'plugin-namespace/alt-email',
