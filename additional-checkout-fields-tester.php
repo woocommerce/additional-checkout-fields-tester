@@ -186,7 +186,7 @@ function custom_fields_tester_register_custom_checkout_fields() {
 		'woocommerce_blocks_sanitize_additional_field',
 		function( $value, $key ) {
 			if ( 'plugin-namespace/gov-id' === $key || 'plugin-namespace/confirm-gov-id' === $key ) {
-				return trim( $value );
+				return str_replace( ' ', '', $value );
 			}
 			return $value;
 		},
