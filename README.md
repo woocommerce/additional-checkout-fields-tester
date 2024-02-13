@@ -18,6 +18,6 @@ The fields marked with asterisks are additional fields. The fields also appear i
 
 ## Additional information location
 
-<img width="721" alt="Screenshot of the additional information section showing three additional fields." src="https://github.com/woocommerce/additional-checkout-fields-tester/assets/5656702/e59e8d85-3d53-4f29-bba3-7c9e61c86f37">
+<img width="742" alt="Screenshot of the additional information section showing three additional fields." src="https://github.com/woocommerce/additional-checkout-fields-tester/assets/5656702/ddb6dc8f-f5f6-4c64-9ee3-fec96607a4c9">
 
 All fields here are additional fields.
