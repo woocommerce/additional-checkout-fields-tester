@@ -49,6 +49,7 @@ function custom_fields_tester_register_custom_checkout_fields() {
 			'id'       => 'plugin-namespace/job-function',
 			'label'    => 'What is your main role at your company?',
 			'location' => 'contact',
+			'required' => true,
 			'type'     => 'select',
 			'options'  => [
 				[
