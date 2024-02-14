@@ -22,11 +22,11 @@ add_action( 'woocommerce_loaded', 'custom_fields_tester_register_custom_checkout
  */
 function custom_fields_tester_register_custom_checkout_fields() {
 
-	if ( ! function_exists( 'woocommerce_blocks_register_checkout_field' ) ) {
+	if ( ! function_exists( '__experimental_woocommerce_blocks_register_checkout_field' ) ) {
 		return;
 	}
 
-	woocommerce_blocks_register_checkout_field(
+	__experimental_woocommerce_blocks_register_checkout_field(
 		array(
 			'id'                => 'plugin-namespace/alt-email',
 			'label'             => 'Alternative Email',
@@ -44,7 +44,7 @@ function custom_fields_tester_register_custom_checkout_fields() {
 		)
 	);
 
-	woocommerce_blocks_register_checkout_field(
+	__experimental_woocommerce_blocks_register_checkout_field(
 		array(
 			'id'       => 'plugin-namespace/job-function',
 			'label'    => 'What is your main role at your company?',
@@ -71,7 +71,7 @@ function custom_fields_tester_register_custom_checkout_fields() {
 		)
 	);
 
-	woocommerce_blocks_register_checkout_field(
+	__experimental_woocommerce_blocks_register_checkout_field(
 		array(
 			'id'       => 'plugin-namespace/mailing-list',
 			'label'    => 'Sign up to our mailing list?',
@@ -80,7 +80,7 @@ function custom_fields_tester_register_custom_checkout_fields() {
 		)
 	);
 
-	woocommerce_blocks_register_checkout_field(
+	__experimental_woocommerce_blocks_register_checkout_field(
 		array(
 			'id'                => 'plugin-namespace/gov-id',
 			'label'             => 'Government ID',
@@ -93,7 +93,7 @@ function custom_fields_tester_register_custom_checkout_fields() {
 		),
 	);
 
-	woocommerce_blocks_register_checkout_field(
+	__experimental_woocommerce_blocks_register_checkout_field(
 		array(
 			'id'       => 'plugin-namespace/confirm-gov-id',
 			'label'    => 'Confirm Government ID',
@@ -103,7 +103,7 @@ function custom_fields_tester_register_custom_checkout_fields() {
 		),
 	);
 
-	woocommerce_blocks_register_checkout_field(
+	__experimental_woocommerce_blocks_register_checkout_field(
 		array(
 			'id'       => 'plugin-namespace/contact-about-order',
 			'label'    => 'Can we contact you about your order?',
@@ -112,7 +112,7 @@ function custom_fields_tester_register_custom_checkout_fields() {
 		),
 	);
 
-	woocommerce_blocks_register_checkout_field(
+	__experimental_woocommerce_blocks_register_checkout_field(
 		array(
 			'id'       => 'plugin-namespace/preferred-contact-time',
 			'label'    => 'Preferred time to contact (Morning, Afternoon, or Evening)',
@@ -135,7 +135,7 @@ function custom_fields_tester_register_custom_checkout_fields() {
 		),
 	);
 
-	woocommerce_blocks_register_checkout_field(
+	__experimental_woocommerce_blocks_register_checkout_field(
 		array(
 			'id'       => 'plugin-namespace/leave-on-porch',
 			'label'    => __( 'Please leave my package on the porch if I\'m not home', 'woocommerce' ),
@@ -144,7 +144,7 @@ function custom_fields_tester_register_custom_checkout_fields() {
 		),
 	);
 
-	woocommerce_blocks_register_checkout_field(
+	__experimental_woocommerce_blocks_register_checkout_field(
 		array(
 			'id'       => 'plugin-namespace/location-on-porch',
 			'label'    => __( 'Describe where we should hide the parcel', 'woocommerce' ),
@@ -152,7 +152,7 @@ function custom_fields_tester_register_custom_checkout_fields() {
 			'type'     => 'text',
 		)
 	);
-	woocommerce_blocks_register_checkout_field(
+	__experimental_woocommerce_blocks_register_checkout_field(
 		array(
 			'id'       => 'plugin-namespace/leave-with-neighbor',
 			'label'    => __( 'Which neighbor should we leave it with if unable to hide?', 'woocommerce' ),
@@ -180,7 +180,7 @@ function custom_fields_tester_register_custom_checkout_fields() {
 	);
 
 	add_action(
-		'woocommerce_blocks_validate_additional_field',
+		'__experimental_woocommerce_blocks_validate_additional_field',
 		function ( \WP_Error $errors, $field_key, $field_value ) {
 			if ( 'plugin-namespace/gov-id' === $field_key ) {
 				$match = preg_match( '/[A-Z0-9]{5}/', $field_value );
@@ -199,7 +199,7 @@ function custom_fields_tester_register_custom_checkout_fields() {
 	);
 
 	add_action(
-		'woocommerce_blocks_sanitize_additional_field',
+		'__experimental_woocommerce_blocks_sanitize_additional_field',
 		function( $value, $key ) {
 			if ( 'plugin-namespace/gov-id' === $key || 'plugin-namespace/confirm-gov-id' === $key ) {
 				return str_replace( ' ', '', $value );
@@ -211,7 +211,7 @@ function custom_fields_tester_register_custom_checkout_fields() {
 	);
 
 	add_action(
-		'woocommerce_blocks_validate_location_address_fields',
+		'__experimental_woocommerce_blocks_validate_location_address_fields',
 		function ( \WP_Error $errors, $fields, $group ) {
 			if ( $fields['plugin-namespace/gov-id'] !== $fields['plugin-namespace/confirm-gov-id'] ) {
 				$errors->add( 'gov_id_mismatch', 'Please ensure your government ID matches the confirmation.' );
